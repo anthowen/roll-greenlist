@@ -1,6 +1,7 @@
 require('@nomiclabs/hardhat-ethers');
 require('@nomiclabs/hardhat-waffle');
 require('@nomiclabs/hardhat-solhint');
+require('@nomiclabs/hardhat-etherscan');
 require('solidity-coverage');
 require('hardhat-gas-reporter');
 require('dotenv').config();
@@ -26,25 +27,14 @@ module.exports = {
 		src: './contracts'
 	},
 	networks: {
-		rinkeby: {
-			url: process.env.INFURA_RINKEBY_KEY,
-			accounts: [process.env.PRIVATE_KEY_22]
-		},
-		// hardhat: {
-		// 	forking: {
-		// 		url: process.env.INFURA_RINKEBY_KEY
-		// 	}
-		// },
-		kovan: {
-			url: process.env.INFURA_KOVAN_KEY,
-			accounts: [process.env.PRIVATE_KEY_22]
-		},
 		ropsten: {
 			url: process.env.INFURA_ROPSTEN_KEY,
-			accounts: [process.env.PRIVATE_KEY_22]
+			accounts: [process.env.PRIVATE_KEY]
+		},
+		etherscan: {
+			url: "https://etherscan.io/",
+			apiKey: process.env.ETHERSCAN_API_KEY
 		}
-		// polygon_mainnet: {},
-		// mumbai: {}
 	},
 	solidity: {
 		compilers: [
