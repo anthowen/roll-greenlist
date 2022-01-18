@@ -3,7 +3,7 @@ const { abi } = require('../hardhat/artifacts/contracts/RollGreenList.sol/RollGr
 
 require('dotenv').config();
 
-const ROLL_CONTRACT_ADDRESS = '0x0AC7A6c312b9677676755E1cDc53d2AFc9d8f46B';
+const ROLL_CONTRACT_ADDRESS = '0x289dffb17ecc3082b9ecb57476e36320118b3059';
 
 const provider = new ethers.providers.JsonRpcProvider(process.env.INFURA_URL);
 const signer = new ethers.Wallet(process.env.PRIVATE_KEY, provider);

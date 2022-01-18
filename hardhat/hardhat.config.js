@@ -28,12 +28,24 @@ module.exports = {
 	},
 	networks: {
 		ropsten: {
-			url: process.env.INFURA_ROPSTEN_KEY,
+			url: `https://ropsten.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,
 			accounts: [process.env.PRIVATE_KEY]
 		},
-		etherscan: {
-			url: "https://etherscan.io/",
-			apiKey: process.env.ETHERSCAN_API_KEY
+		kovan: {
+			url: `https://kovan.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,
+			accounts: [process.env.PRIVATE_KEY]
+		},
+		rinkeby: {
+			url: `https://rinkeby.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,
+			accounts: [process.env.PRIVATE_KEY]
+		},
+	},
+	etherscan: {
+		url: "https://etherscan.io/",
+		apiKey: {
+			ropsten: process.env.ETHERSCAN_API_KEY,
+			kovan: process.env.ETHERSCAN_API_KEY,
+			rinkeby: process.env.ETHERSCAN_API_KEY,
 		}
 	},
 	solidity: {

@@ -22,17 +22,15 @@ contract RollGreenList {
         _;
     }
 
-    constructor () {
+    constructor (uint _spotNum) {
+        spotNum = _spotNum;
         owner = msg.sender;
     }
 
-    function initialize(uint _spotNum, address[] calldata _lists) external onlyOwner {
-        require(initialized == false, "Can be initialized only once");
-
-        spotNum = _spotNum;
-        signedAddresses = _lists;
-
-        initialized = true;
+    function initialize(address[] calldata _lists) external onlyOwner {
+        for (uint i = 0; i < _lists.length; i ++) {
+            signedAddresses.push(_lists[i]);
+        }
     }
 
     function rollGreenList() public returns (address) {
